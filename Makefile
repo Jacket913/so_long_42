@@ -42,10 +42,13 @@ INCLD_FLAG 	:= ${INCLUDES}
 LIBFT		:= $(LIBFT_DIR)/libft.a
 LIBMLX = $(LIBMLX_DIR)/libmlx.a
 
-SRC := so_long.c \
-map_redraw.c \
-map_checks.c \
-player.c
+SRC :=	game_init.c \
+		map_checks.c \
+		map_checks2.c \
+		map_draw.c \
+		player.c \
+		so_long.c \
+		utils.c
 
 SRC 		:= ${strip ${SRC}}
 OBJS 		:= ${patsubst %.c,${OBJS_DIR}/%.o,${SRC}}
