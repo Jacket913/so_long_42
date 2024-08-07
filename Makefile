@@ -43,6 +43,7 @@ LIBFT		:= $(LIBFT_DIR)/libft.a
 LIBMLX = $(LIBMLX_DIR)/libmlx.a
 
 SRC := so_long.c \
+map_redraw.c \
 map_checks.c \
 player.c
 

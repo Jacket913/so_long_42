@@ -6,7 +6,7 @@
 /*   By: gmoulin <gmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 18:37:54 by gmoulin           #+#    #+#             */
-/*   Updated: 2024/08/07 05:43:26 by gmoulin          ###   ########.fr       */
+/*   Updated: 2024/08/07 20:18:10 by gmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,19 +75,30 @@ int	on_destroy(t_data *data)
 
 int on_keypress(int keysym, t_data *map)
 {
-	printf("Pressed key: %d\n", keysym);
 	if (keysym == 53) // Escape key
 		on_destroy(map);
 	else if (keysym == 0 || keysym == 123) // Left arrow key
-		player_move(map, 'w');
+	{
+		player_move(map, 0, -1);
+		ft_printf("Move : West.\n");
+	}
 	else if (keysym == 13 || keysym == 126) // Up arrow key
-		player_move(map, 'n');
+	{
+		player_move(map, -1, 0);
+		ft_printf("Move : North.\n");
+	}
 	else if (keysym == 2 || keysym == 124) // Right arrow key
-		player_move(map, 'e');
+	{
+		player_move(map, 0, 1);
+		ft_printf("Move : East.\n");
+	}
 	else if (keysym == 1 || keysym == 125) // Down arrow key
-		player_move(map, 's');
+	{
+		player_move(map, 1, 0);
+		ft_printf("Move : South.\n");
+	}
 	mlx_clear_window(map->mlx, map->win);
-	mlx_put_image_to_window(map->mlx, map->win, map->map, 0, 0);
+	redraw_win(map, 0, 0);
 	return (0);
 }
 
