@@ -6,7 +6,7 @@
 /*   By: gmoulin <gmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 18:37:54 by gmoulin           #+#    #+#             */
-/*   Updated: 2024/08/07 05:30:28 by gmoulin          ###   ########.fr       */
+/*   Updated: 2024/08/07 05:43:26 by gmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	start_win(t_data *map)
 	j = map->map_y;
 	w = 40;
 	h = 40;
-	map->win = mlx_new_window(map->mlx, i * w, j * h, "so_long gae bowser");
+	map->win = mlx_new_window(map->mlx, i * w, j * h, "so_long, gae bowser c:");
 	map->wall = mlx_xpm_file_to_image(map->mlx, "./assets/wall.xpm", &w, &h);
 	map->tile = mlx_xpm_file_to_image(map->mlx, "./assets/tile.xpm", &w, &h);
 	map->collectible = mlx_xpm_file_to_image(map->mlx, "./assets/coin.xpm", &w, &h);
