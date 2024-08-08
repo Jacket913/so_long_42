@@ -42,9 +42,9 @@ INCLD_FLAG 	:= ${INCLUDES}
 LIBFT		:= $(LIBFT_DIR)/libft.a
 LIBMLX = $(LIBMLX_DIR)/libmlx.a
 
-SRC :=	game_init.c \
-		map_checks.c \
-		map_checks2.c \
+SRC :=	checks1.c \
+		checks2.c \
+		game_init.c \
 		map_draw.c \
 		player.c \
 		so_long.c \

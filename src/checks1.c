@@ -6,7 +6,7 @@
 /*   By: gmoulin <gmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 01:05:31 by gmoulin           #+#    #+#             */
-/*   Updated: 2024/08/08 00:33:33 by gmoulin          ###   ########.fr       */
+/*   Updated: 2024/08/08 01:27:25 by gmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,18 +116,18 @@ int	map_arg_check(t_data *map)
 		while (++j < map->m_x - 1)
 		{
 			if (!is_valid_char(map->map[i][j]))
-				return (error_handler_map(1), 0);
+				return (error_handler_map(map, 1), 0);
 		}
 	}
 	if (!map_p_check(map))
-		return (error_handler_map(2), 0);
+		return (error_handler_map(map, 2), 0);
 	if (!map_e_check(map))
-		return (error_handler_map(3), 0);
+		return (error_handler_map(map, 3), 0);
 	if (!map_curio_check(map))
-		return (error_handler_map(4), 0);
+		return (error_handler_map(map, 4), 0);
 	if (!map_limits_check(map))
-		return (error_handler_map(5), 0);
+		return (error_handler_map(map, 5), 0);
 	if (map_size_check(map) != 1)
-		return (error_handler_map(map_size_check(map)));
+		return (error_handler_map(map, map_size_check(map)));
 	return (1);
 }

@@ -6,11 +6,40 @@
 /*   By: gmoulin <gmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 04:51:16 by gmoulin           #+#    #+#             */
-/*   Updated: 2024/08/07 22:31:58 by gmoulin          ###   ########.fr       */
+/*   Updated: 2024/08/08 01:24:32 by gmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "so_long.h"
+
+int on_keypress(int keysym, t_data *map)
+{
+	if (keysym == 53) // Escape key
+		on_destroy(map);
+	else if (keysym == 0 || keysym == 123) // Left arrow key
+	{
+		player_move(map, 0, -1);
+		ft_printf("Move : West.\n");
+	}
+	else if (keysym == 13 || keysym == 126) // Up arrow key
+	{
+		player_move(map, -1, 0);
+		ft_printf("Move : North.\n");
+	}
+	else if (keysym == 2 || keysym == 124) // Right arrow key
+	{
+		player_move(map, 0, 1);
+		ft_printf("Move : East.\n");
+	}
+	else if (keysym == 1 || keysym == 125) // Down arrow key
+	{
+		player_move(map, 1, 0);
+		ft_printf("Move : South.\n");
+	}
+	mlx_clear_window(map->mlx, map->win);
+	draw_win(map);
+	return (0);
+}
 
 void	exit_condition(t_data *map)
 {

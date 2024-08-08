@@ -6,7 +6,7 @@
 /*   By: gmoulin <gmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 18:38:38 by gmoulin           #+#    #+#             */
-/*   Updated: 2024/08/08 00:34:45 by gmoulin          ###   ########.fr       */
+/*   Updated: 2024/08/08 02:09:09 by gmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,13 @@ int		draw_win(t_data *map);
 void	exit_condition(t_data *map);
 void	player_move(t_data *map, int move_y, int move_x);
 int		on_destroy(t_data *map);
+int		on_keypress(int keysym, t_data *map);
 int		is_valid_char(char c);
 int		map_size_check(t_data *map);
-int		error_handler_map(int error);
-int		error_handler(t_data *map, int error);
+int		error_handler_map(t_data *map, int error);
+int		error_handler_loading(t_data *map, int error);
+int		error_handler_file(t_data *map, int error);
+int		has_ber_ext(t_data *map, const char *file);
+void	clean(t_data *data);
 
 #endif

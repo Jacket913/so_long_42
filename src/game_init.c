@@ -6,7 +6,7 @@
 /*   By: gmoulin <gmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 23:35:53 by gmoulin           #+#    #+#             */
-/*   Updated: 2024/08/07 23:54:02 by gmoulin          ###   ########.fr       */
+/*   Updated: 2024/08/08 02:13:37 by gmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,14 @@ void	map_parse(t_data *map, char *file)
 
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
-		exit(ft_printf("Error opening file.\n"));
+		error_handler_file(map, 1);
 	while ((line = get_next_line(fd)) != NULL)
 	{
 		if (line[ft_strlen(line) - 1] == '\n')
 			line[ft_strlen(line) - 1] = '\0';
 		tmp = (char **)malloc(sizeof(char *) * (map->m_y + 2));
 		if (!tmp)
-			exit(ft_printf("Error allocating memory.\n"));
+			error_handler_file(map, 2);
 		ft_memcpy(tmp, map->map, sizeof(char *) * map->m_y);
 		tmp[map->m_y++] = ft_strdup(line);
 		tmp[map->m_y] = NULL;
@@ -76,7 +76,6 @@ void	map_parse(t_data *map, char *file)
 		free(line);
 	}
 	close(fd);
-	if (map->m_y == 0)
-		exit(ft_printf("Error, invalid map.\n"));
-	map->m_x = ft_strlen(map->map[0]);
+	if (map->m_y == 0 || (map->m_x = ft_strlen(map->map[0])) == 0)
+		error_handler_file(map, 3);
 }
