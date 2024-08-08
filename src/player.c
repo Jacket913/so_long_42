@@ -6,7 +6,7 @@
 /*   By: gmoulin <gmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 04:51:16 by gmoulin           #+#    #+#             */
-/*   Updated: 2024/08/08 01:24:32 by gmoulin          ###   ########.fr       */
+/*   Updated: 2024/08/08 18:39:56 by gmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int on_keypress(int keysym, t_data *map)
 {
 	if (keysym == 53) // Escape key
-		on_destroy(map);
+		clean(map);
 	else if (keysym == 0 || keysym == 123) // Left arrow key
 	{
 		player_move(map, 0, -1);
@@ -48,7 +48,7 @@ void	exit_condition(t_data *map)
 		map->m_count++;
 		ft_printf("You win!\n");
 		ft_printf("Move count: %d\n", map->m_count);
-		on_destroy(map);
+		clean(map);
 		exit(0);
 	}
 	else if (map->c_collected != map->c_count)

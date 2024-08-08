@@ -44,6 +44,7 @@ LIBMLX = $(LIBMLX_DIR)/libmlx.a
 
 SRC :=	checks1.c \
 		checks2.c \
+		flood.c \
 		game_init.c \
 		map_draw.c \
 		player.c \

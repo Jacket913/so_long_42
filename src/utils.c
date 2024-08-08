@@ -6,7 +6,7 @@
 /*   By: gmoulin <gmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 23:06:17 by gmoulin           #+#    #+#             */
-/*   Updated: 2024/08/08 02:13:59 by gmoulin          ###   ########.fr       */
+/*   Updated: 2024/08/08 19:27:09 by gmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int	error_handler_map(t_data *map, int error)
 		(ft_printf("Error: Map is too big.\n"), clean(map));
 	else if (error == 8)
 		(ft_printf("Error: Map is too small.\n"), clean(map));
+	else if (error == 9)
+		(ft_printf("Error: Flood check error.\n"), clean(map));
 	else if (error > 0)
 		(ft_printf("Error code (map): %d.\n", error), clean(map));
 	return (1);
@@ -93,11 +95,12 @@ int	on_destroy(t_data *map)
 	return (0);
 }
 
-void	clean(t_data *data)
+int	clean(t_data *data)
 {
 	if (!data)
 		exit(1);
 	if (data->map)
 		ft_fsplit(data->map);
 	(on_destroy(data), exit(1));
+	return (1);
 }

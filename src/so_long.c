@@ -6,7 +6,7 @@
 /*   By: gmoulin <gmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 18:37:54 by gmoulin           #+#    #+#             */
-/*   Updated: 2024/08/08 02:12:58 by gmoulin          ###   ########.fr       */
+/*   Updated: 2024/08/08 19:27:30 by gmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,11 @@ int main(int ac, char **av)
 	map_arg_check(&map);
 	start_win(&map);
 	error_handler_loading(&map, 0);
+	if (!flood_map(&map))
+		error_handler_map(&map, 9);
 	draw_win(&map);
-
-	// Register key press hook
 	mlx_hook(map.win, KeyPress, KeyPressMask, &on_keypress, &map);
-
-	// Register destroy hook
-	mlx_hook(map.win, DestroyNotify, StructureNotifyMask, &on_destroy, &map);
-
-	// Loop over the MLX pointer
+	mlx_hook(map.win, DestroyNotify, StructureNotifyMask, &clean, &map);
 	mlx_loop(map.mlx);
 	return (0);
 }
