@@ -6,32 +6,32 @@
 /*   By: gmoulin <gmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 04:51:16 by gmoulin           #+#    #+#             */
-/*   Updated: 2024/08/08 18:39:56 by gmoulin          ###   ########.fr       */
+/*   Updated: 2024/09/17 15:53:26 by gmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "so_long.h"
+#include "so_long.h"
 
-int on_keypress(int keysym, t_data *map)
+int	on_keypress(int keysym, t_data *map)
 {
-	if (keysym == 53) // Escape key
+	if (keysym == 53)
 		clean(map);
-	else if (keysym == 0 || keysym == 123) // Left arrow key
+	else if (keysym == 0 || keysym == 123)
 	{
 		player_move(map, 0, -1);
 		ft_printf("Move : West.\n");
 	}
-	else if (keysym == 13 || keysym == 126) // Up arrow key
+	else if (keysym == 13 || keysym == 126)
 	{
 		player_move(map, -1, 0);
 		ft_printf("Move : North.\n");
 	}
-	else if (keysym == 2 || keysym == 124) // Right arrow key
+	else if (keysym == 2 || keysym == 124)
 	{
 		player_move(map, 0, 1);
 		ft_printf("Move : East.\n");
 	}
-	else if (keysym == 1 || keysym == 125) // Down arrow key
+	else if (keysym == 1 || keysym == 125)
 	{
 		player_move(map, 1, 0);
 		ft_printf("Move : South.\n");
@@ -52,7 +52,8 @@ void	exit_condition(t_data *map)
 		exit(0);
 	}
 	else if (map->c_collected != map->c_count)
-		ft_printf("You need all collectibles to open the exit.\nCollectibles collected: %d/%d.\n",map->c_collected, map->c_count);
+		ft_printf("You need all of Max's Lugers before going to Sam.\
+		\nLugers collected: %d/%d.\n", map->c_collected, map->c_count);
 }
 
 void	player_move(t_data *map, int move_y, int move_x)
@@ -62,7 +63,7 @@ void	player_move(t_data *map, int move_y, int move_x)
 		if (map->map[map->p_y + move_y][map->p_x + move_x] == 'E')
 		{
 			exit_condition(map);
-			return;
+			return ;
 		}
 		if (map->map[map->p_y + move_y][map->p_x + move_x] == 'C')
 			map->c_collected++;
@@ -73,8 +74,7 @@ void	player_move(t_data *map, int move_y, int move_x)
 		map->m_count++;
 	}
 	else
-		ft_printf("You can't just run through walls...\n");
+		ft_printf("You can't just run through walls, Max...\n");
 	ft_printf("Move count: %d\n", map->m_count);
-	ft_printf("Collectible collected: %d/%d\n", map->c_collected, map->c_count);
+	ft_printf("Lugers collected: %d/%d\n", map->c_collected, map->c_count);
 }
-

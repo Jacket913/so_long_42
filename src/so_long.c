@@ -6,13 +6,13 @@
 /*   By: gmoulin <gmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 18:37:54 by gmoulin           #+#    #+#             */
-/*   Updated: 2024/08/08 19:27:30 by gmoulin          ###   ########.fr       */
+/*   Updated: 2024/09/17 14:56:04 by gmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_data	map;
 

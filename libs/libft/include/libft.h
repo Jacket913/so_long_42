@@ -6,7 +6,7 @@
 /*   By: gmoulin <gmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 14:09:50 by gmoulin           #+#    #+#             */
-/*   Updated: 2024/08/07 01:33:03 by gmoulin          ###   ########.fr       */
+/*   Updated: 2024/09/17 16:11:15 by gmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 char	*get_next_line(int fd);
+char	*oget_next_line(int fd, char **line);
 
 int		ft_printf(const char *input, ...);
 int		ft_putchar(int c);

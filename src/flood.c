@@ -6,7 +6,7 @@
 /*   By: gmoulin <gmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 19:06:43 by gmoulin           #+#    #+#             */
-/*   Updated: 2024/08/08 19:53:55 by gmoulin          ###   ########.fr       */
+/*   Updated: 2024/09/17 14:46:04 by gmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ static int	flood_map_parse(t_fmap *fmap, t_data *map)
 
 static void	flood(t_data *map, t_fmap *fmap, int x, int y)
 {
-	if (x < 0 || y < 0 || x >= map->m_x || y >= map->m_y || fmap->map[y][x] == '1')
+	if (x < 0 || y < 0 || x >= map->m_x
+		|| y >= map->m_y || fmap->map[y][x] == '1')
 		return ;
 	else if (map->map[y][x] == 'E')
 	{
