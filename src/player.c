@@ -6,7 +6,7 @@
 /*   By: gmoulin <gmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 04:51:16 by gmoulin           #+#    #+#             */
-/*   Updated: 2024/09/17 15:53:26 by gmoulin          ###   ########.fr       */
+/*   Updated: 2024/09/18 13:13:40 by gmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 int	on_keypress(int keysym, t_data *map)
 {
-	if (keysym == 53)
+	if (keysym == 65307)
 		clean(map);
-	else if (keysym == 0 || keysym == 123)
+	else if (keysym == 97 || keysym == 65361)
 	{
 		player_move(map, 0, -1);
 		ft_printf("Move : West.\n");
 	}
-	else if (keysym == 13 || keysym == 126)
+	else if (keysym == 119 || keysym == 65362)
 	{
 		player_move(map, -1, 0);
 		ft_printf("Move : North.\n");
 	}
-	else if (keysym == 2 || keysym == 124)
+	else if (keysym == 100 || keysym == 65363)
 	{
 		player_move(map, 0, 1);
 		ft_printf("Move : East.\n");
 	}
-	else if (keysym == 1 || keysym == 125)
+	else if (keysym == 115 || keysym == 65364)
 	{
 		player_move(map, 1, 0);
 		ft_printf("Move : South.\n");

@@ -6,7 +6,7 @@
 /*   By: gmoulin <gmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 23:06:17 by gmoulin           #+#    #+#             */
-/*   Updated: 2024/08/08 19:27:09 by gmoulin          ###   ########.fr       */
+/*   Updated: 2024/09/18 13:11:23 by gmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,8 @@ int	on_destroy(t_data *map)
 		mlx_destroy_image(map->mlx, map->exit);
 	if (map->player)
 		mlx_destroy_image(map->mlx, map->player);
-	// if (map->mlx)
-	// 	(mlx_destroy_display(map->mlx), free(map->mlx)); doesnt work on mac
+	if (map->mlx)
+		(mlx_destroy_display(map->mlx), free(map->mlx));
 	exit (0);
 	return (0);
 }
